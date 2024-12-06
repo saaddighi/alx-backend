@@ -4,6 +4,7 @@
 import csv
 import math
 from typing import Tuple, List, Dict
+from math import ceil
 
 
 def index_range(page: int, page_size: int) -> Tuple:
@@ -124,7 +125,8 @@ class Server:
         p1 = {'page_size' : len(data)}
         p2 = {'page' : page}
         p3 = {'data' : data}
-        total_pages = len(self.dataset()) / len(data)
+        total_data = len(self.dataset())
+        total_pages = ceil(total_data / page_size)
         p6 = {'total_pages' : total_pages}
         p4 = {"next_page" : page + 1 if page < total_pages else None}
         p5 = {'prev_page' : page - 1 if page > 1 else None}
