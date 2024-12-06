@@ -132,6 +132,6 @@ class Server:
             p5 = {'prev_page' : page - 1}
         except:
             p5 = None
-        p6 = {'total_pages' : len(self.dataset) / len(data)}
+        p6 = {'total_pages' : len(self.dataset()) / len(data)}
         alldict = {**p1, **p2, **p3, **p4, **p5, **p6}
         return alldict
