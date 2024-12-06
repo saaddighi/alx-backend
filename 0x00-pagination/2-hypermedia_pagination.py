@@ -52,7 +52,7 @@ class Server:
             return data[a:b]
         except IndexError:
             return []
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         data = self.get_page(page, page_size)
         p1 = {'page_size': len(data)}
