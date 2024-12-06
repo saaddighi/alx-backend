@@ -124,9 +124,10 @@ class Server:
         p1 = {'page_size' : len(data)}
         p2 = {'page' : page}
         p3 = {'data' : data}
-        p4 = {"next_page" : page + 1 if (page * page_size) < len(self.dataset())else None}
+        total_pages = len(self.dataset()) / len(data)
+        p6 = {'total_pages' : total_pages}
+        p4 = {"next_page" : page + 1 if page < total_pages else None}
         p5 = {'prev_page' : page - 1 if page > 1 else None}
         
-        p6 = {'total_pages' : len(self.dataset()) / len(data)}
         alldict = {**p1, **p2, **p3, **p4, **p5, **p6}
         return alldict
