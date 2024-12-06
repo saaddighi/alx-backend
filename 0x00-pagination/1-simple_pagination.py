@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-  
+
 
 import csv
 import math
@@ -49,5 +49,5 @@ class Server:
         data = self.dataset()
         try:
             return data[a:b]
-        except:
+        except IndexError:
             return []
