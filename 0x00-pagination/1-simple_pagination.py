@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-        
+  
 
 import csv
 import math
@@ -22,6 +22,7 @@ def index_range(page: int, page_size: int) -> Tuple:
         indexf = page * page_size
     return (indexa, indexf)
 
+
 class Server:
     """Server class to paginate a database of popular baby names.
     """
@@ -42,11 +43,11 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            assert isinstance(page, int) and isinstance(page_size, int)
-            assert page > 0 and page_size > 0
-            a , b = index_range(page, page_size)
-            data = self.dataset()
-            try:
-                return data[a:b]
-            except:
-                return []
+        assert isinstance(page, int) and isinstance(page_size, int)
+        assert page > 0 and page_size > 0
+        a, b = index_range(page, page_size)
+        data = self.dataset()
+        try:
+            return data[a:b]
+        except:
+            return []
