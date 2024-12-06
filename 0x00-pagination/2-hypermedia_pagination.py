@@ -52,6 +52,7 @@ class Server:
             return data[a:b]
         except IndexError:
             return []
+    
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         data = self.get_page(page, page_size)
         p1 = {'page_size': len(data)}
@@ -62,6 +63,5 @@ class Server:
         p6 = {'total_pages': total_pages}
         p4 = {"next_page": page + 1 if page < total_pages else None}
         p5 = {'prev_page': page - 1 if page > 1 else None}
-        
         alldict = {**p1, **p2, **p3, **p4, **p5, **p6}
         return alldict
