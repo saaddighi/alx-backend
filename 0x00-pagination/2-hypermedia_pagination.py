@@ -70,11 +70,6 @@ class Server:
         #!/usr/bin/env python3
 
 
-import csv
-import math
-from typing import Tuple, List, Dict
-
-
 def index_range(page: int, page_size: int) -> Tuple:
     """a function that eturn a tuple of size two containing a
     start index and an end index corresponding
@@ -122,14 +117,14 @@ class Server:
             return []
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
         data = self.get_page(page, page_size)
-        p1 = {'page_size' : len(data)}
-        p2 = {'page' : page}
-        p3 = {'data' : data}
+        p1 = {'page_size': len(data)}
+        p2 = {'page': page}
+        p3 = {'data': data}
         total_data = len(self.dataset())
         total_pages = ceil(total_data / page_size)
-        p6 = {'total_pages' : total_pages}
-        p4 = {"next_page" : page + 1 if page < total_pages else None}
-        p5 = {'prev_page' : page - 1 if page > 1 else None}
+        p6 = {'total_pages': total_pages}
+        p4 = {"next_page": page + 1 if page < total_pages else None}
+        p5 = {'prev_page': page - 1 if page > 1 else None}
         
         alldict = {**p1, **p2, **p3, **p4, **p5, **p6}
         return alldict
