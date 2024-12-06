@@ -124,7 +124,7 @@ class Server:
         p1 = {'page_size' : len(data)}
         p2 = {'page' : page}
         p3 = {'data' : data}
-        p4 = {"next_page" : page + 1 if page < len(self.dataset()) - 1 else None}
+        p4 = {"next_page" : page + 1 if (page * page_size) < len(self.dataset())else None}
         p5 = {'prev_page' : page - 1 if page > 1 else None}
         
         p6 = {'total_pages' : len(self.dataset()) / len(data)}
