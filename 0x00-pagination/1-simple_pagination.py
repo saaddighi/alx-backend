@@ -49,6 +49,5 @@ class Server:
             assert isinstance(page_size, int) and page_size >= 0
             a , b = index_range(page, page_size)
             data = self.get_dataset()
-            lst = []
-            data[a:b].append(lst)
-            return lst
+            
+            return data[a:b]
