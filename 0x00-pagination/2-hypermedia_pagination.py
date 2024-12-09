@@ -54,6 +54,9 @@ class Server:
             return []
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict:
+        """method that takes the same arguments (and defaults)
+        as get_page and returns a dictionary
+        """
         data = self.get_page(page, page_size)
         p1 = {'page_size': len(data)}
         p2 = {'page': page}
