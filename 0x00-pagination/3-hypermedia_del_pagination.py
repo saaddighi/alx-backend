@@ -40,6 +40,9 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """if certain rows are removed from the dataset,
+        the user does not miss items from dataset when changing page
+        """
         assert index < (len(self.dataset()) - 1)
         indexed_data = self.indexed_dataset()
         data = [indexed_data[i] for i in range(index, index + page_size)
