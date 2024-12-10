@@ -1,7 +1,10 @@
 #!/usr/bin/python3
-
+""" FIFOCache module
+"""
 
 BaseCaching = __import__('base_caching').BaseCaching
+""" importing the parent class
+"""
 
 
 class FIFOCache(BaseCaching):
