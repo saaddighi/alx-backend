@@ -23,5 +23,6 @@ class FIFOCache(BaseCaching):
             """ deleting first item off the dict
             """
             lst = list(self.cache_data.keys())
-            print(lst[0])
-            del self.cache_data[lst[0]]
+            todel = self.cache_data.get(lst[0])
+            print(todel)
+            del self.cache_data[todel]
