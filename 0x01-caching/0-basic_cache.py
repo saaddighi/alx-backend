@@ -43,12 +43,12 @@ class BasicCache(BaseCaching):
         if key == None or item == None:
             pass
         else:
-            return dic.update({key: item})
+            return self.cache_data.update({key: item})
     def get(self, key):
         
-        if key == None or key not in dic:
+        if key == None or key not in self.cache_data:
             return None
         else:
-            return dic.key('key')
+            return self.cache_data.get('key')
             
             
