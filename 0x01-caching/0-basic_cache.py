@@ -36,6 +36,9 @@ class BasicCache(BaseCaching):
     
     dic = self.cache_data
     
+    def __init__(self):
+        pass
+    
     def put(self, key, item):
         if key == None or item == None:
             pass
