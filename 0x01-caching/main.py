@@ -1,18 +1,15 @@
+""" 1-main """
+FIFOCache = __import__('1-fifo_cache').FIFOCache
 
-"""
-import sys
-"""
-try:
-    BasicCache = __import__('0-basic_cache').BasicCache
-
-    my_cache = BasicCache()
-    my_cache.print_cache()
-    my_cache.put("test1", "myValue")
-    my_cache.print_cache()
-    test1_value = my_cache.get("test1")
-    if test1_value != "myValue":
-        print("get must return 'myValue', as we put it in the cache")
-    else:
-        print("OK")
-except:
-    print(sys.exc_info()[1])
+my_cache = FIFOCache()
+my_cache.put("A", "Hello")
+my_cache.put("B", "World")
+my_cache.put("C", "ALX")
+my_cache.put("D", "School")
+my_cache.print_cache()
+my_cache.put("E", "Battery")
+my_cache.print_cache()
+my_cache.put("C", "Street")
+my_cache.print_cache()
+my_cache.put("F", "Mission")
+my_cache.print_cache()
