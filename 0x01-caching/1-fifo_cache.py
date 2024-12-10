@@ -24,5 +24,10 @@ class FIFOCache(BaseCaching):
             """
             lst = list(self.cache_data.keys())
             todel = self.cache_data.get(lst[0])
-            print(todel)
+            print(f'DISCARD: {todel}')
             del self.cache_data[todel]
+    def get(self, key):
+        """ Get an item from the cache by its key """
+        if key is None or key not in self.cache_data:
+            return None
+        return self.cache_data[key]
