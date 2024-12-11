@@ -19,13 +19,13 @@ class FIFOCache(BaseCaching):
         if key and item:
             self.cache_data[key] = item
             
-        while len(self.cache_data) > BaseCaching.MAX_ITEMS:
+        if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             """ deleting first item off the dict
             """
-            lst = list(self.cache_data.keys())
-            todel = self.cache_data.get(lst[0])
-            print(f'DISCARD: {todel}')
-            del self.cache_data[todel]
+            first_key = list(self.cache_data.keys())[0]
+            self.cache_data.pop(first_key)
+            print(f'DISCARD: {self.cache_data[first_key]}')
+            
     def get(self, key):
         """ Get an item from the cache by its key """
         if key is None or key not in self.cache_data:
