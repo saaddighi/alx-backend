@@ -24,7 +24,7 @@ class FIFOCache(BaseCaching):
             """
             first_key = list(self.cache_data.keys())[0]
             self.cache_data.pop(first_key)
-            print(f'DISCARD: {self.cache_data[first_key]}')
+            print(f'DISCARD: {first_key}')
         self.cache_data[key] = item
             
     def get(self, key):
