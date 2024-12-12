@@ -15,7 +15,7 @@ class LRUCache(BaseCaching):
     """
     def __init__(self):
         super().__init__()
-        
+        self.cache_data = OrderedDict()
 
     def put(self, key, item):
         """ check if key and item exists and proceed with
@@ -25,7 +25,7 @@ class LRUCache(BaseCaching):
             return
 
         elif key in self.cache_data:
-            self.ordrdict.move_to_end(key)
+            self.cache_datat.move_to_end(key)
             
         self.cache_data[key] = item
         
@@ -41,5 +41,5 @@ class LRUCache(BaseCaching):
         """
         if key is None or key not in self.cache_data:
             return None
-        self.ordrdict.move_to_end(key)
+        self.cache_data.move_to_end(key)
         return self.cache_data[key]
