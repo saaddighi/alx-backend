@@ -26,15 +26,14 @@ class LRUCache(BaseCaching):
 
         elif key in self.cache_data:
             self.cache_datat.move_to_end(key)
-            
+
         self.cache_data[key] = item
-        
+
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             """ deleting the least used item off the dict
             """
             del_key, del_item = self.cache_data.popitem(last=False)
             print(f'DISCARD: {del_key}')
-
 
     def get(self, key):
         """ Get an item from the cache by its key
