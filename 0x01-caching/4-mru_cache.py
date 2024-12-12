@@ -25,7 +25,7 @@ class MRUCache(BaseCaching):
             return
         
         if key in self.cache_data:
-            self.cache_datat.move_to_end(key)
+            self.cache_data.move_to_end(key)
 
         self.cache_data[key] = item
         
