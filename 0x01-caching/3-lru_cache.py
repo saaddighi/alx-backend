@@ -29,7 +29,7 @@ class LRUCache(BaseCaching):
             """
             self.ordrdict.popitem(last=False)
 
-    self.ordrdict[key]
+        self.ordrdict[key]
 
     def get(self, key):
         """ Get an item from the cache by its key
