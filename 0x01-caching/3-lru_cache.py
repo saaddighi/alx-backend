@@ -15,25 +15,31 @@ class LRUCache(BaseCaching):
     """
     def __init__(self):
         super().__init__()
-        self.ordrdict = OrderedDict(self.data_cache)
+        
 
     def put(self, key, item):
         """ check if key and item exists and proceed with
             LRU algo
         """
+        self.cache_data = OrderedDict(self.data_cache)
         if key is None or item is None:
-            self.ordrdict.move_to_end(key)
+            return
 
-        elif len(self.ordrdict) > BaseCaching.MAX_ITEMS:
+        elif key in self.cache_data:
+            self.ordrdict.move_to_end(key)
+            
+        self.cache_data[key]
+        
+        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             """ deleting the least used item off the dict
             """
-            self.ordrdict.popitem(last=False)
+            del_key, del_item = self.cache_data.popitem(last=False)
+            print(f'DISCARD: {del_key}')
 
-        self.ordrdict[key]
 
     def get(self, key):
         """ Get an item from the cache by its key
         """
-        if key is None or key not in self.ordrdict:
+        if key is None or key not in self.cache_data:
             return None
-        return self.ordrdict[key]
+        return self.cache_data[key]
