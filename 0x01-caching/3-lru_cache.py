@@ -10,7 +10,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 """
 
 
-class LIFOCache(BaseCaching):
+class LRUCache(BaseCaching):
     """ LRU caching method
     """
     def __init__(self):
