@@ -15,25 +15,25 @@ class LIFOCache(BaseCaching):
     """
     def __init__(self):
         super().__init__()
-        ordrdict = OrderedDict(self.data_cache)
+        self.ordrdict = OrderedDict(self.data_cache)
 
     def put(self, key, item):
         """ check if key and item exists and proceed with
             LRU algo
         """
         if key is None or item is None:
-            ordrdict.move_to_end(key)
+            self.ordrdict.move_to_end(key)
 
-        elif len(ordrdict) > BaseCaching.MAX_ITEMS:
+        elif len(self.ordrdict) > BaseCaching.MAX_ITEMS:
             """ deleting the least used item off the dict
             """
-            ordrdict.popitem(last=False)
+            self.ordrdict.popitem(last=False)
 
-    ordrdict[key]
+    self.ordrdict[key]
 
     def get(self, key):
         """ Get an item from the cache by its key
         """
-        if key is None or key not in ordrdict:
+        if key is None or key not in self.ordrdict:
             return None
-        return ordrdict[key]
+        return self.ordrdict[key]
