@@ -34,7 +34,7 @@ class MRUCache(BaseCaching):
             """
             del_key, del_item = self.cache_data.popitem(key)
             print(f'DISCARD: {del_key}')
-            
+        self.cache_data[key] = item
         
             
     def get(self, key):
