@@ -16,7 +16,7 @@ class MRUCache(BaseCaching):
     def __init__(self):
         super().__init__()
         self.cache_data = OrderedDict()
-        
+
     def put(self, key, item):
         """ check if key and item exists and proceed with
             MRU algo
@@ -24,20 +24,19 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
 
-        
         if key not in self.cache_data:
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 """ deleting the recent used item off the dict
                 """
                 del_key, del_item = self.cache_data.popitem(last=True)
                 print(f'DISCARD: {del_key}')
-        
+
         self.cache_data[key] = item
-            
+
     def get(self, key):
         """ Get an item from the cache by its key
         """
         if key is None or key not in self.cache_data:
             return None
-        
+
         return self.cache_data[key]
