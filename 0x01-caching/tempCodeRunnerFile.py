@@ -1,7 +1,7 @@
 import sys
 
 try:
-    MRUCache = __import__('4-mru_cache').MRUCache
+    MRUCache = __import__('test').MRUCache
     from base_caching import BaseCaching
 
     BaseCaching.MAX_ITEMS = 1

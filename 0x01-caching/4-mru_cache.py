@@ -24,22 +24,20 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
 
+        
+        if key not in self.cache_data:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+                """ deleting the recent used item off the dict
+                """
+                del_key, del_item = self.cache_data.popitem(last=True)
+                print(f'DISCARD: {del_key}')
+        
         self.cache_data[key] = item
-        
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            """ deleting the recent used item off the dict
-            """
-            del_key, del_item = self.cache_data.popitem(last=True)
-            print(f'DISCARD: {del_key}')
-        
             
     def get(self, key):
         """ Get an item from the cache by its key
         """
         if key is None or key not in self.cache_data:
             return None
-        item = self.cache_data[key]
-        del self.cache_data[key]
         self.cache_data[key] = item
-        
-        return item
+        return self.cache_data[key]
