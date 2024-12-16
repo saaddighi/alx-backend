@@ -23,16 +23,13 @@ class MRUCache(BaseCaching):
         """
         if key is None or item is None:
             return
-        
-        elif key in self.cache_data:
-            self.cache_data.move_to_end(key)
 
         self.cache_data[key] = item
         
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
             """ deleting the recent used item off the dict
             """
-            del_key, del_item = self.cache_data.popitem(key)
+            del_key, del_item = self.cache_data.popitem(last=True)
             print(f'DISCARD: {del_key}')
         
             
@@ -41,5 +38,8 @@ class MRUCache(BaseCaching):
         """
         if key is None or key not in self.cache_data:
             return None
-        self.cache_data.move_to_end(key)
-        return self.cache_data[key]
+        item = self.cache_data[key]
+        del self.cache_data[key]
+        self.cache_data[key] = item
+        
+        return item
