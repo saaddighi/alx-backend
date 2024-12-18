@@ -23,5 +23,5 @@ msgid "home_title"
 msgstr ""Welcome to ALX""
 
 #: templates/3-index.html:7
-msgid "home_title"
+msgid "home_header"
 msgstr "Hello world!"
