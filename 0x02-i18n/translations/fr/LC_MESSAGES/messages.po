@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2024.
 #
-msgid "home_title" "home_header"
-msgstr "Bienvenue chez ALX" "Bonjour monde!"
+msgid ""
+msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2024-12-18 18:28+0100\n"
@@ -18,3 +18,10 @@ msgstr "Bienvenue chez ALX" "Bonjour monde!"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.16.0\n"
 
+#: templates/3-index.html
+msgid "home_title"
+msgstr "Bienvenue chez ALX"
+
+#: templates/3-index.html
+msgid "home_title"
+msgstr "Bonjour monde!"
