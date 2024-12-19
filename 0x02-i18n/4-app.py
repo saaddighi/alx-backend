@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 """task 1 creat a flask app"""
 
 
@@ -9,6 +9,7 @@ from flask_babel import gettext as _
 
 class Config:
     """config class """
+    DEBUG = True
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
