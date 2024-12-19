@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 """task 1 creat a flask app"""
 
 
@@ -23,7 +23,7 @@ babel = Babel(app)
 def get_locale():
     """geting best language match"""
     locale = request.args.get('locale')
-    if locale and locale in Config.LANGUAGES:
+    if locale and locale in app.config['LANGUAGES']:
         return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
