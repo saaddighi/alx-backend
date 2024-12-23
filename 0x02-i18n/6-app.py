@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 """task 1 creat a flask app"""
 
 from flask import Flask, render_template, request, g
@@ -54,6 +54,7 @@ def get_locale():
         return acc_local
     else:
         return Config.BABEL_DEFAULT_LOCALE
+
 
 @app.route('/')
 def home():
