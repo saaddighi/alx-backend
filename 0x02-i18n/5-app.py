@@ -28,14 +28,18 @@ users = {
 
 
 def get_user():
-    user1 = request.args.get('login_as')
-    if user1:
-        return users.get(int(user1))
+    """gets user based on id"""
+    userid = request.args.get('login_as')
+    if userid:
+        return users.get(int(userid))
     return None
+
 
 @app.before_request
 def before_request():
+    """to do before request"""
     g.user = get_user()
+
 
 @babel.localeselector
 def get_locale():
