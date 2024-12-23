@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python3
 """task 1 creat a flask app"""
 
 from flask import Flask, render_template, request
